@@ -26,7 +26,7 @@ export class CfMediaPackageStack extends cdk.Stack {
 
         const liveManifestCachePolicy = props.manifestCachePolicyProps ? this.createLiveManifestCachePolicy(props.manifestCachePolicyProps) : cf.CachePolicy.ELEMENTAL_MEDIA_PACKAGE;
         const updateHlsManifestWithCloseCaptionFunc = this.createFuncUpdateHlsManifestWithCloseCaption(leRole, props)
-        cfBehaviours["*.m3u8"] = {
+        cfBehaviours["/out/v1/index.m3u8"] = {
             origin: origin,
             viewerProtocolPolicy: cf.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
             allowedMethods: cf.AllowedMethods.ALLOW_GET_HEAD,
