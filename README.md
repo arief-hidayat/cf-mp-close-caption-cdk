@@ -1,14 +1,38 @@
-# Welcome to your CDK TypeScript project
+# Context
 
-This is a blank project for CDK development with TypeScript.
+This is Infrastructure as Code (AWS CDK) to setup CloudFront distribution with origin
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## CDK - One time Setup
 
-## Useful commands
+### [Install AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/cli.html)
+    
+* install nodeJS
+* install npm
+* `npm install -g aws-cdk`
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+### Clone repo
+```bash
+git clone https://github.com/arief-hidayat/cf-mp-close-caption-cdk.git
+cd cf-mp-close-caption-cdk
+```
+
+### Deploy
+
+Review [cf-mp-close-caption-cdk.ts](./bin/cf-mp-close-caption-cdk.ts), especially `domainName` in `CloudFrontMediaPackageProps`
+
+Run
+```bash
+cdk deploy
+```
+
+You will get output like this
+```text
+Outputs:
+CfMediaPackageStack.cfMpCloudFrontDistributionId = EXXXX
+CfMediaPackageStack.cfMpCloudFrontDomainName = dxxx.cloudfront.net
+```
+
+Try playing your media using above cloudfront domain name
+
+### Manual Setup on Your Existing CloudFront Distribution
+
